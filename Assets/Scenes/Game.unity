@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63025ff6ef54b394a8668b58efd2e1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingBalance: 150
+  startingBalance: 20000
   goldText: {fileID: 129121637}
 --- !u!1001 &970694769
 PrefabInstance:
