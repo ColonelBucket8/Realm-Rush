@@ -6,33 +6,37 @@ public class Bank : MonoBehaviour
 {
     [SerializeField] private int startingBalance = 150;
     [SerializeField] private TextMeshProUGUI goldText;
+    private int currentBalance;
 
-    public int CurrentBalance { get; private set; }
+    public int CurrentBalance => currentBalance;
 
     private void Awake()
     {
-        CurrentBalance = startingBalance;
+        currentBalance = startingBalance;
         UpdateDisplay();
     }
 
     private void UpdateDisplay()
     {
-        goldText.text = "Gold: " + CurrentBalance;
+        goldText.text = "Gold: " + currentBalance;
     }
 
     public void Deposit(int amount)
     {
-        CurrentBalance += Mathf.Abs(amount);
+        currentBalance += Mathf.Abs(amount);
         UpdateDisplay();
     }
 
     public void Withdraw(int amount)
     {
-        CurrentBalance -= Mathf.Abs(amount);
+        currentBalance -= Mathf.Abs(amount);
         UpdateDisplay();
-        if (CurrentBalance < 0)
-            // lose the game
+
+        // lose the game
+        if (currentBalance < 0)
+        {
             ReloadScene();
+        }
     }
 
     private static void ReloadScene()
